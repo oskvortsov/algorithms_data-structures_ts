@@ -1,0 +1,1 @@
+export { InsertSort } from './InsertSort';

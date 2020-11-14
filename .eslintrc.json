@@ -7,6 +7,14 @@
     "ecmaVersion": 2020,
     "projects": "./tsconfig.json"
   },
+  "rules": {
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
+    ]
+  },
   "plugins": [
     "prettier",
     "@typescript-eslint"
