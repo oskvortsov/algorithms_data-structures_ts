@@ -37,17 +37,58 @@ export class SortTest {
     expect(sorter.sort(['b', 'a', 'aaa', 'cc'])).toEqual(sortedArr);
   }
 
-  static testStability(SorterClass: SortClass): void {
+  static testStability(SorterClass: SortClass, not?: true): void {
     const options = {
       compareFn: (first, second) => {
-        if (first.length === second.length) return 0;
-        return first.length < second.length ? -1 : 1;
+        if (first.lastName === second.lastName) return 0;
+        return first.lastName < second.lastName ? -1 : 1;
       },
     };
     const sorter = new SorterClass(options);
 
-    const input = ['ss', 'q', 'a', 'ddd', 'bb'];
-    const sorted = ['q', 'a', 'ss', 'bb', 'ddd'];
+    const input = [
+      {
+        lastName: 'Arutyn',
+        name: 'Kostya',
+      },
+      {
+        lastName: 'Ivanov',
+        name: 'Sergey',
+      },
+      {
+        lastName: 'Ivanov',
+        name: 'Ivan',
+      },
+      {
+        lastName: 'Abramov',
+        name: 'Denis',
+      },
+    ];
+
+    const sorted = [
+      {
+        lastName: 'Abramov',
+        name: 'Denis',
+      },
+      {
+        lastName: 'Arutyn',
+        name: 'Kostya',
+      },
+      {
+        lastName: 'Ivanov',
+        name: 'Sergey',
+      },
+      {
+        lastName: 'Ivanov',
+        name: 'Ivan',
+      },
+    ];
+
+    if (not) {
+      expect(sorter.sort(input)).not.toEqual(sorted);
+      return;
+    }
+
     expect(sorter.sort(input)).toEqual(sorted);
   }
 
