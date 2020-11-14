@@ -30,9 +30,10 @@ class Comparator {
   //   return this.compare(first, second) === 0;
   // }
   //
-  // great<T>(first: T, second: T) {
-  //   return this.compare(first, second) > 0;
-  // }
+
+  greatThan<T>(first: T, second: T) {
+    return this.compare(first, second) > 0;
+  }
 
   reverse() {
     return new Comparator((first, second) => this.compare(second, first));
