@@ -8,9 +8,9 @@ Insertion sort is a simple sorting algorithm that builds the final sorted array 
 
 ## Complexity
 
-| Name                  | Best            | Average             | Worst               | Memory    | Stable    | Comments  |
-| --------------------- | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: | :-------- |
-| **Insertion sort**    | <span style="color: orange">n</span>               | <span style="color: red">n<sup>2</sup></span>       | <span style="color: red">n<sup>2</sup></span>       | 1         | Yes       |           |
+| Name                  | Best            | Average             | Worst               | Memory    | Stable    |
+| --------------------- | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: |
+| **Insertion sort**    | n               | n<sup>2</sup>       | n<sup>2</sup>       | 1         | Yes       |
 
 ## References
 [Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort)
