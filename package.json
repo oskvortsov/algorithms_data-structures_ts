@@ -16,6 +16,10 @@
       "pre-commit": "npm run lint:fix"
     }
   },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
   "author": "Oleg Skvortsov",
   "license": "ISC",
   "devDependencies": {
