@@ -26,13 +26,13 @@ class Comparator {
     return this.compare(first, second) < 0;
   }
 
-  equal<T>(first: T, second: T) {
-    return this.compare(first, second) === 0;
-  }
-
-  great<T>(first: T, second: T) {
-    return this.compare(first, second) > 0;
-  }
+  // equal<T>(first: T, second: T) {
+  //   return this.compare(first, second) === 0;
+  // }
+  //
+  // great<T>(first: T, second: T) {
+  //   return this.compare(first, second) > 0;
+  // }
 
   reverse() {
     return new Comparator((first, second) => this.compare(second, first));
@@ -41,7 +41,7 @@ class Comparator {
 
 export abstract class Sort {
   comparator: Comparator;
-  callback: () => void;
+  callback: <T>(element?: T) => void;
 
   constructor(options?: SortOptions) {
     this.comparator = new Comparator(options?.compareFn);

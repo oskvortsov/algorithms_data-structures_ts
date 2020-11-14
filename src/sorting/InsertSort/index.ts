@@ -20,9 +20,11 @@ export class InsertSort extends Sort {
       const current = array[j];
       let i = j - 1;
 
+      this.callback(current);
+
       while (i > -1 && comparator.lessThan(current, array[i])) {
         [array[i + 1], array[i]] = [array[i], array[i + 1]];
-        this.callback && this.callback();
+        this.callback(array[i]);
         i--;
       }
 

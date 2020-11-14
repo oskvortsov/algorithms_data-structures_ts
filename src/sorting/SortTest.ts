@@ -5,6 +5,7 @@ export const reverseSortedArray = [40, 20, 17, 12, 10, 7, 6, 4, 2, 2, 1];
 export const notSortedArray = [40, 2, 6, 4, 10, 2, 12, 1, 17, 20, 7];
 export const negativeArray = [12, -1, -12, 20, 32, 0, 2, -12, 100, -100];
 export const negativeSortedArray = [-100, -12, -12, -1, 0, 2, 12, 20, 32, 100];
+export const equalArray = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
 type SortType = typeof Sort;
 interface SortClass extends SortType {}
@@ -20,6 +21,7 @@ export class SortTest {
     expect(sorter.sort(notSortedArray)).toEqual(sortedArray);
     expect(sorter.reverseSort(notSortedArray)).toEqual(reverseSortedArray);
     expect(sorter.sort(negativeArray)).toEqual(negativeSortedArray);
+    expect(sorter.sort(equalArray)).toEqual(equalArray);
   }
 
   static testSortWithCustomerComparator(SorterClass: SortClass): void {
@@ -33,5 +35,34 @@ export class SortTest {
 
     const sortedArr = ['b', 'a', 'cc', 'aaa'];
     expect(sorter.sort(['b', 'a', 'aaa', 'cc'])).toEqual(sortedArr);
+  }
+
+  static testStability(SorterClass: SortClass): void {
+    const options = {
+      compareFn: (first, second) => {
+        if (first.length === second.length) return 0;
+        return first.length < second.length ? -1 : 1;
+      },
+    };
+    const sorter = new SorterClass(options);
+
+    const input = ['ss', 'q', 'a', 'ddd', 'bb'];
+    const sorted = ['q', 'a', 'ss', 'bb', 'ddd'];
+    expect(sorter.sort(input)).toEqual(sorted);
+  }
+
+  static testTimeComplexity<T>(
+    SorterClass: SortClass,
+    array: Array<T>,
+    expectTime: number,
+  ): void {
+    const callback = jest.fn();
+    const options = {
+      callback,
+    };
+    const sorter = new SorterClass(options);
+
+    sorter.sort(array);
+    expect(callback).toHaveBeenCalledTimes(expectTime);
   }
 }
