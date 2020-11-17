@@ -1,15 +1,6 @@
 import { Sort } from '../Sort';
 
 export class InsertSort extends Sort {
-  sort<T>(originalArray: Array<T>): Array<T> {
-    return this.sortMethod(originalArray);
-  }
-
-  reverseSort<T>(arr: Array<T>): Array<T> {
-    const revereComparator = this.comparator.reverse();
-    return this.sortMethod(arr, revereComparator);
-  }
-
   protected sortMethod<T>(
     originalArray: Array<T>,
     comparator = this.comparator,

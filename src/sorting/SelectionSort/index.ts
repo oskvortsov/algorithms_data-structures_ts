@@ -1,15 +1,6 @@
 import { Sort } from '../Sort';
 
 export class SelectionSort extends Sort {
-  sort<T>(arr: Array<T>): Array<T> {
-    return this.sortMethod(arr);
-  }
-
-  reverseSort<T>(arr: Array<T>): Array<T> {
-    const reverseComparator = this.comparator.reverse();
-    return this.sortMethod(arr, reverseComparator);
-  }
-
   protected sortMethod<T>(
     originalArray: Array<T>,
     comparator = this.comparator,
