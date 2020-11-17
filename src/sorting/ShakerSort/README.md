@@ -36,7 +36,7 @@ end procedure
 
 | Name                  | Best            | Average             | Worst               | Memory    | Stable    |
 | --------------------- | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: |
-| **Insertion sort**    | n   | n<sup>2</sup>       | n<sup>2</sup>       | 1         | Yes       |
+| **Shaker sort**       | n   | n<sup>2</sup>       | n<sup>2</sup>       | 1         | Yes       |
 
 ## References
 [Wikipedia](https://en.wikipedia.org/wiki/Cocktail_shaker_sort)

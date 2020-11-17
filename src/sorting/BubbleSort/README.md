@@ -28,7 +28,7 @@ end procedure
 
 | Name                  | Best            | Average             | Worst               | Memory    | Stable    |
 | --------------------- | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: |
-| **Insertion sort**    | n               | n<sup>2</sup>       | n<sup>2</sup>       | n         | Yes       |
+| **Bubble sort**       | n               | n<sup>2</sup>       | n<sup>2</sup>       | n         | Yes       |
 
 ## References
 [Wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
