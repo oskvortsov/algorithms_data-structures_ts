@@ -10,7 +10,7 @@ export class ShakerSort extends Sort {
     let right = array.length - 1;
 
     while (left < right) {
-      this.callback();
+      this.callback(right);
 
       for (let i = left; i < right; i++) {
         this.callback(array[i]);
@@ -23,7 +23,7 @@ export class ShakerSort extends Sort {
 
       for (let i = right; i > left; i--) {
         if (comparator.lessThan(array[i], array[i - 1])) {
-          [array[i], array[i - 1]] = [array[i - 1], array[i]];
+          Sort.swap(array, i, i - 1);
         }
       }
       left++;

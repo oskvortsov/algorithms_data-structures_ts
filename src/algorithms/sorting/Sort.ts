@@ -49,17 +49,25 @@ export abstract class Sort {
     this.callback = options?.callback || defaultCallback;
   }
 
-  sort<T>(originalArray: Array<T>): Array<T> {
-    return this.sortMethod(originalArray);
+  sort<T>(array: Array<T>): Array<T> {
+    return this.sortMethod(array);
   }
 
-  reverseSort<T>(arr: Array<T>): Array<T> {
+  reverseSort<T>(array: Array<T>): Array<T> {
     const revereComparator = this.comparator.reverse();
-    return this.sortMethod(arr, revereComparator);
+    return this.sortMethod(array, revereComparator);
+  }
+
+  protected static swap<T>(
+    array: Array<T>,
+    first: number,
+    second: number,
+  ): void {
+    [array[first], array[second]] = [array[second], array[first]];
   }
 
   protected abstract sortMethod<T>(
-    arr: Array<T>,
+    array: Array<T>,
     comparator?: Comparator,
   ): Array<T>;
 }

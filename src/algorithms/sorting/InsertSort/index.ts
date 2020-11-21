@@ -14,7 +14,7 @@ export class InsertSort extends Sort {
       this.callback(current);
 
       while (i > -1 && comparator.lessThan(current, array[i])) {
-        [array[i + 1], array[i]] = [array[i], array[i + 1]];
+        Sort.swap(array, i + 1, i);
         this.callback(array[i]);
         i--;
       }

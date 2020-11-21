@@ -14,9 +14,9 @@ export class CombSort extends Sort {
       this.callback();
 
       for (let i = 0; i + step < array.length; i++) {
-        this.callback();
+        this.callback(array[i]);
         if (comparator.greatThan(array[i], array[i + step])) {
-          [array[i], array[i + step]] = [array[i + step], array[i]];
+          Sort.swap(array, i, i + step);
         }
       }
 

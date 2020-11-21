@@ -17,7 +17,7 @@ export class BubbleSort extends Sort {
         this.callback(array[i]);
 
         if (comparator.greatThan(array[i - 1], array[i])) {
-          [array[i], array[i - 1]] = [array[i - 1], array[i]];
+          Sort.swap(array, i, i - 1);
           swapped = true;
         }
       }

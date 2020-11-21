@@ -20,7 +20,7 @@ export class SelectionSort extends Sort {
       }
 
       if (minIndex !== i) {
-        [array[i], array[minIndex]] = [array[minIndex], array[i]];
+        Sort.swap(array, i, minIndex);
       }
     }
 
