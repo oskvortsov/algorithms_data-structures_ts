@@ -18,23 +18,29 @@ export interface Sequence<T> {
   deleteLast(): T; // remove and return last item;
 }
 
+export type CustomSetKey = string | number;
+export type CustomSetItem<T> = {
+  key: CustomSetKey;
+  value: T;
+};
+
 // L03-L08 - number of lecture MIT (6.006)
-export interface CustomSet<T> {
+export interface CustomSet<T = unknown> {
   // Container
-  build(items: T[]): void; // given an iterable items, build sequence from items
+  build(items: Array<CustomSetItem<T>>): void; // given an iterable items, build sequence from items
   len(): number; // return the number of stored items
 
   // Static
-  find(key: T): T | undefined; // return the store item with key
+  find(key: CustomSetKey): T; // return the store item with key
 
   // Dynamic
-  insert(value: T): void; // add value to set (replace item with the same key if one already exists)
-  delete(key: number): void; // remove and return the stored item with key
+  insert(value: CustomSetItem<T>): void; // add value to set (replace item with the same key if one already exists)
+  delete(key: CustomSetKey): CustomSetItem<T>; // remove and return the stored item with key
 
   // Order
   iterateOrder(): Iterable<T>; // return the stored items one-by-one in key order
-  findMin(): T; // return the stored item with smallest key
-  findMax(): T; // return the stored item with largest key
-  findNext(k: T): T | undefined; // return the stored item with smallest key larger than k
-  findPrev(k: T): T | undefined; // return the stored item with largest key smaller than k
+  findMin(): CustomSetItem<T>; // return the stored item with smallest key
+  findMax(): CustomSetItem<T>; // return the stored item with largest key
+  findNext(k: CustomSetKey): CustomSetItem<T> | undefined; // return the stored item with smallest key larger than k
+  findPrev(k: CustomSetKey): CustomSetItem<T> | undefined; // return the stored item with largest key smaller than k
 }
