@@ -8,7 +8,7 @@
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "jest",
+    "test": "jest --coverage --no-cache",
     "ci": "npm run lint && npm run test -- --coverage --no-cache"
   },
   "husky": {
@@ -26,7 +26,19 @@
         "lines": 100,
         "statements": 100
       }
-    }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "mapCoverage": true
   },
   "author": "Oleg Skvortsov",
   "license": "ISC",
